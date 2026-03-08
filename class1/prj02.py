@@ -6,6 +6,12 @@ from tkinter import *
 #######################定義函數########################
 def hi_fun():
     print("hi, welcome to my first GUI")
+    display.config(text="hi, welcome to my first GUI", fg="red", bg="black")
+
+
+def clear_fun():
+    # 清除顯示的文字，將標籤的文字設置為空字符串。
+    display.config(text="", fg="white", bg="white")
 
 
 #######################建立視窗########################
@@ -15,14 +21,18 @@ windows = Tk()
 windows.title("my first GUI")
 ###########################建立按鈕########################
 # 建立一個按鈕，當按鈕被點擊時，會呼叫 hi_fun 函數。
-btn1 = Button(windows, text="Click Me", command=hi_fun)
+btn1 = Button(windows, text="show Screen", command=hi_fun)
 # 將按鈕放置在視窗中，使用 pack()
 btn1.pack()
+# 建立一個按鈕，當按鈕被點擊時，會呼叫 clear_fun 函數。
+btn2 = Button(windows, text="clear Screen", command=clear_fun)
+# 將按鈕放置在視窗中，使用 pack()
+btn2.pack()
 ###########################建立標籤########################
 # 建立一個標籤，顯示 "Hello, World!" 的文字。(背景為紅色，前景為黑色)
-label1 = Label(windows, text="Hello, World!", bg="red", fg="black")
+display = Label(windows, text="", compound=hi_fun)
 # 將標籤放置在視窗中，使用 pack()
-label1.pack()
+display.pack()
 #######################運行應用程式########################
 # 執行主視窗的事件循環，讓視窗保持顯示狀態，等待用戶的操作。
 windows.mainloop()
